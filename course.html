@@ -158,25 +158,6 @@
     </div>
   </section>
 
-
-  <section class="footer">
-    <h4>Sobre Nosotros</h4>
-    <p>En XPorta.com, estamos dedicados a proporcionarte la información necesaria para llevar a cabo exportaciones
-      exitosas. Nuestra misión es facilitar tu viaje en el mundo de la exportación, ofreciéndote recursos valiosos y
-      asesoramiento experto.</p>
-    <div class="icons">
-      <i class="fa-brands fa-facebook"></i>
-      <i class="fa-brands fa-twitter"></i>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-linkedin"></i>
-    </div>
-    <p>Hecho con <i class="fas fa-heart"></i> por <a href="https://github.com/SrChezz" class="link"><i
-          class="fab fa-github"></i>
-        Chezzby</a> </p>
-  </section>
-
-  <script src="script.js"></script>
-
   <section class="cuestionario">
     <form id="quiz-form">
       <ol>
@@ -221,77 +202,102 @@
         <!-- Repite los bloques de preguntas para q3, q4 y q5 -->
       </ol>
       <div id="quiz-controls">
+        <button id="show">Mostrar</button>
         <button id="next-question">Siguiente</button>
-        <button id="submit-quiz" style="display: none;">Finalizar</button>
       </div>
     </form>
+  </section>
 
-    <div id="results">
-      <h2>Resultados del cuestionario</h2>
-      <div id="quiz-results"></div>
+  <section id="results">
+    <div id="next-thing">
+      <!-- <a href="trabajando.html">Siguiente articulo</a> -->
     </div>
   </section>
 
+  <section class="footer">
+    <h4>Sobre Nosotros</h4>
+    <p>En XPorta.com, estamos dedicados a proporcionarte la información necesaria para llevar a cabo exportaciones
+      exitosas. Nuestra misión es facilitar tu viaje en el mundo de la exportación, ofreciéndote recursos valiosos y
+      asesoramiento experto.</p>
+    <div class="icons">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-linkedin"></i>
+    </div>
+    <p class="p-center">Hecho con <i class="fas fa-heart"></i> por <a href="https://github.com/SrChezz" class="link"><i
+          class="fab fa-github"></i>
+        Chezzby</a> </p>
+  </section>
+
+  <script src="script.js"></script>
+
   <script>
     const form = document.getElementById("quiz-form");
-    const resultsDiv = document.getElementById("quiz-results");
     const nextButton = document.getElementById("next-question");
+    const showButton = document.getElementById("show");
     const submitButton = document.getElementById("submit-quiz");
+    const resultsDiv = document.getElementById("results");
+
+    resultsDiv.style.display = "none";
+    const results = document.getElementById("next-thing");
     let currentQuestion = 1;
+    let showAnswer = 0;
 
     // Agrega las respuestas correctas aquí
     const correctAnswers = ["a", "c", "a", "c", "c"];
 
-    nextButton.addEventListener("click", function () {
+    showButton.addEventListener("click", function () {
       event.preventDefault();
       const selectedOption = form.querySelector(`input[name="q${currentQuestion}"]:checked`);
+
+      console.log("click")
+      console.log(selectedOption)
+      console.log(correctAnswers[currentQuestion - 1])
+
       if (selectedOption) {
-        currentQuestion++;
-        if (currentQuestion <= 5) {
-          form.querySelector(`li:nth-child(${currentQuestion})`).style.display = "block";
-        }
-        if (currentQuestion >= 2) {
-          form.querySelector(`li:nth-child(${currentQuestion - 1})`).style.display = "none";
+        if (selectedOption.value == correctAnswers[currentQuestion - 1]) {
+          selectedOption.parentNode.style.backgroundColor = "#99B080";
+          showAnswer = 1;
+        } else {
+          selectedOption.parentNode.style.backgroundColor = "#FF8080";
+          showAnswer = 0;
         }
       }
+    })
 
-      if (currentQuestion === 6) {
-        nextButton.style.display = "none";
-        submitButton.style.display = "block";
-      }
-    });
-
-    submitButton.addEventListener("click", function () {
+    nextButton.addEventListener("click", function () {
       event.preventDefault();
-      calculateScore();
-    });
 
-    function calculateScore() {
-      const userAnswers = [];
-      for (let i = 1; i <= 5; i++) {
-        const selectedOption = form.querySelector(`input[name="q${i}"]:checked`);
+      if (showAnswer) {
+        const selectedOption = form.querySelector(`input[name="q${currentQuestion}"]:checked`);
         if (selectedOption) {
-          userAnswers.push(selectedOption.value);
-        }
-      }
+          currentQuestion++;
+          console.log(currentQuestion)
+          if (currentQuestion <= 5) {
+            form.querySelector(`li:nth-child(${currentQuestion})`).style.display = "block";
+          }
+          if (currentQuestion >= 2 && currentQuestion <= 5) {
 
-      if (userAnswers.length !== 5) {
-        resultsDiv.innerHTML = "Por favor, responde a todas las preguntas.";
-      } else {
-        let score = 0;
-        for (let i = 0; i < 5; i++) {
-          if (userAnswers[i] === correctAnswers[i]) {
-            score++;
+            form.querySelector(`li:nth-child(${currentQuestion - 1})`).style.display = "none";
           }
         }
-
-        resultsDiv.innerHTML = `Puntaje: ${score} / 5`;
-
-        if (score >= 5) {
-          resultsDiv.innerHTML += "<br>¡Has superado este nivel! <a href='#'>Ir al siguiente nivel</a>";
-        }
       }
+
+
+
+      if (currentQuestion === 6) {
+        showNextThing();
+      };
+    })
+    showNextThing()
+
+
+    function showNextThing() {
+      resultsDiv.style.display = "block"
+      results.innerHTML += "<br> <p class='p-center'>¡Has superado este nivel! <a class='link' href='#'>Ir al siguiente nivel</a> <p>";
     }
+
   </script>
 
 </body>
