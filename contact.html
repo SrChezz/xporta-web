@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Xporta | Contacto </title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="shortcut icon" href="images/xporta-logo.png" type="image/x-icon">
+</head>
+
+<body>
+  <section class="sub-header">
+    <nav>
+      <a href="index.html"><img src="./images/xporta-logo.png" alt="" /></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa-solid fa fa-xmark" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./about.html">Nosotros</a></li>
+          <li><a href="./course.html">Exporta</a></li>
+          <li><a href="./contact.html">Contacto</a></li>
+        </ul>
+      </div>
+      <i class="fa-solid fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <h1>Contacto</h1>
+  </section>
+
+
+
+  <!--------contact us--------->
+  <section class="location">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1950.967743573463!2d-75.19893471985166!3d-12.047959787719707!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910e979ec9e0a7c9%3A0xfc772b2952606584!2sUniversidad%20Continental%20-%20Campus%20Huancayo!5e0!3m2!1ses!2spe!4v1698298274903!5m2!1ses!2spe"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <section class="contact-us">
+    <div class="row">
+      <div class="contact-col">
+        <div>
+          <i class="fa-solid fa-house"></i>
+          <span>
+            <h5>Av San Carlos 1980,</h5>
+            <p>Huancayo, Junín</p>
+          </span>
+        </div>
+        <div>
+          <i class="fa-solid fa-phone"></i>
+          <span>
+            <h5>+995995302</h5>
+            <p>Lunes a Viernes, 10AM a 6PM</p>
+          </span>
+        </div>
+        <div>
+          <i class="fa-solid fa-envelope"></i>
+          <span>
+            <h5>info@xporta.com</h5>
+            <p>Escribenos</p>
+          </span>
+        </div>
+      </div>
+      <div class="contact-col">
+        <form action="form-handler.php" method="post">
+          <input type="text" name="name" placeholder="Ingrese su nombre" required>
+          <input type="email" name="email" placeholder="Ingrese su correo" required>
+          <input type="text" name="subject" placeholder="Tema" required>
+          <textarea rows="8" name="message" placeholder="Mensaje" required></textarea>
+          <button type="submit" class="hero-btn red-btn">Enviar mensaje</button>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!--------- footer --------->
+  <section class="footer">
+    <h4>Sobre Nosotros</h4>
+    <p>En XPorta.com, estamos dedicados a proporcionarte la información necesaria para llevar a cabo exportaciones
+      exitosas. Nuestra misión es facilitar tu viaje en el mundo de la exportación, ofreciéndote recursos valiosos y
+      asesoramiento experto.</p>
+    <div class="icons">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-linkedin"></i>
+    </div>
+    <p>Hecho con <i class="fas fa-heart"></i> por <a href="https://github.com/SrChezz" class="link"><i
+          class="fab fa-github"></i>
+        Chezzby</a> </p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
