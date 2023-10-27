@@ -631,4 +631,18 @@ footer */
   flex-basis: 60%;
 }
 
-.cuestionario {}
+.cuestionario {
+  width: 60%;
+  margin: auto;
+  background-color: var(--red-accent);
+  padding: 20px;
+  border-radius: 10px;
+  color: rgb(238, 237, 237);
+}
+
+.cuestionario label {
+  display: block;
+  padding: 10px 20px 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
